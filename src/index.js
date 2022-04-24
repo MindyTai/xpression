@@ -2,7 +2,10 @@ const express = require('express')
 const crypto = require('crypto')
 const session = require('express-session')
 const connectToMongo = require('./db/mongoose')
+const userRouter = require('./routers/user')
+const pageRouter = require('./routers/page')
 const path = require('path');
+
 const app = express()
 
 const startConnectToMongo = async () => {
@@ -19,6 +22,8 @@ const startConnectToMongo = async () => {
 }
 
 startConnectToMongo()
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(session({
@@ -30,3 +35,5 @@ app.use(session({
         maxAge: 1 * 24 * 60 * 60 * 1000
       }
   }))
+app.use(userRouter)
+app.use(pageRouter)
