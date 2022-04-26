@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "export NODE_ENV=production && node ./src/index.js",
+    "start:dev": "export NODE_ENV=development && nodemon ./src/index.js",
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
@@ -12,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.7",
     "express": "^4.17.3",
     "express-session": "^1.17.2",

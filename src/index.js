@@ -4,13 +4,15 @@ const session = require('express-session')
 const connectToMongo = require('./db/mongoose')
 const userRouter = require('./routers/user')
 const pageRouter = require('./routers/page')
-const path = require('path');
-const helmet = require('helmet');
+const path = require('path')
+const helmet = require('helmet')
+const dotenv = require('dotenv')
+
+dotenv.config({ path: `${__dirname}/env/.env.${process.env.NODE_ENV}` })
 
 const app = express()
-
 const startConnectToMongo = async () => {
-  const port = process.env.PORT || 3000
+  const port = process.env.PORT
 
   try {
       await connectToMongo();
@@ -23,6 +25,7 @@ const startConnectToMongo = async () => {
 }
 
 startConnectToMongo()
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.json())
