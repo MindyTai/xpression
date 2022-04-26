@@ -1,5 +1,6 @@
 # Xpression (Express + MongoDB)
 
+![GitHub CI](https://img.shields.io/github/workflow/status/MindyTai/xpression/xpression%20CI?style=for-the-badge)
 ## TODOs
 - [ ] Payload hashing or encryption
 - [ ] Set up DNS
