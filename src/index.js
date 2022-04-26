@@ -5,6 +5,7 @@ const connectToMongo = require('./db/mongoose')
 const userRouter = require('./routers/user')
 const pageRouter = require('./routers/page')
 const path = require('path');
+const helmet = require('helmet');
 
 const app = express()
 
@@ -37,3 +38,4 @@ app.use(session({
   }))
 app.use(userRouter)
 app.use(pageRouter)
+app.use(helmet())
