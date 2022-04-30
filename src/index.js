@@ -12,7 +12,7 @@ dotenv.config({ path: `${__dirname}/env/.env.${process.env.NODE_ENV}` })
 
 const app = express()
 const startConnectToMongo = async () => {
-  const port = process.env.PORT
+  const port = process.env.PORT || 3000
 
   try {
       await connectToMongo();
