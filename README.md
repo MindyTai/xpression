@@ -11,7 +11,7 @@
 
 ## prerequisites
 - Node v14 or above
+- Docker Desktop
 
 ## Getting Started
-- npm install
-- spin up the server: npm start
+`$ docker-compose up`
